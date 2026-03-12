@@ -479,13 +479,16 @@ function SuperheroStory(){
 
           function SalaryCalculator(){
 
-            const [level,setLevel]=useState("Junior")
+            type Level = "Junior" | "Middle" | "Senior";
+            const [level, setLevel] = useState<Level>("Junior");
             
-            const salaries={
-            Junior:"30k–55k MDL",
-            Middle:"45k–70k MDL",
-            Senior:"70k+ MDL"
-            }
+            const salaries: Record<Level, string> = {
+              Junior: "30k–55k MDL",
+              Middle: "45k–70k MDL",
+              Senior: "70k+ MDL"
+            };
+            
+            <p>{salaries[level]}</p>
             
             return(
             
