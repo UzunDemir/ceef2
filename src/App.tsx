@@ -48,15 +48,17 @@ export default function App() {
 
 function InternetGlobe(){
 
-  const connections=[
-    [[0,0,2],[1,1,1]],
-    [[0,0,2],[-1,1,-1]],
-    [[0,0,2],[2,-1,0]]
-  ]
+  const connections: [number, number, number][][] = [
+  [[0,0,2],[1,1,1]],
+  [[0,0,2],[-1,1,-1]],
+  [[0,0,2],[2,-1,0]]
+];
 
-  const lines=useMemo(()=>connections.map((c,i)=>
-    <Line key={i} points={c} color="cyan" lineWidth={1}/>
-  ),[])
+const lines = useMemo(() =>
+  connections.map((c,i) =>
+    <Line key={i} points={c} color="cyan" lineWidth={1} />
+  )
+, []);
 
   return(
     <div style={{height:500}}>
