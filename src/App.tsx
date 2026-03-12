@@ -30,8 +30,7 @@ export default function App() {
 
 // ----------------- InternetGlobe -----------------
 function InternetGlobe() {
-  // Исправлено: явно указаны типы [number, number, number]
-  const connections: [number, number, number][][] = [
+  const connections: [ [number, number, number], [number, number, number] ][] = [
     [[0, 0, 2], [1, 1, 1]],
     [[0, 0, 2], [-1, 1, -1]],
     [[0, 0, 2], [2, -1, 0]]
@@ -39,18 +38,18 @@ function InternetGlobe() {
 
   const lines = useMemo(() =>
     connections.map((c, i) => <Line key={i} points={c} color="cyan" lineWidth={1} />)
-    , [])
+  , [])
 
   return (
     <div style={{ height: 500 }}>
       <Canvas>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[3, 3, 3]} />
-        <Sphere args={[2, 64, 64]}>
-          <meshStandardMaterial wireframe color="cyan" />
+        <ambientLight intensity={0.6}/>
+        <directionalLight position={[3,3,3]}/>
+        <Sphere args={[2,64,64]}>
+          <meshStandardMaterial wireframe color="cyan"/>
         </Sphere>
         {lines}
-        <OrbitControls autoRotate autoRotateSpeed={0.5} />
+        <OrbitControls autoRotate autoRotateSpeed={0.5}/>
       </Canvas>
     </div>
   )
